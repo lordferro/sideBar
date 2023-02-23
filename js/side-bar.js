@@ -11,7 +11,6 @@ window.addEventListener('load',function(){
 
                 menuOption.forEach(function (m) {
                     m.classList.remove('chosen-section');
-                    console.log(m);
                 });
                 const chosenSection = this.dataset.hover;
                 sections.forEach(function (s) {
@@ -42,17 +41,23 @@ window.addEventListener('load',function(){
     // Responsive
     const sideBarOptions = document.querySelector(".side-mid");
     menuBtn.addEventListener('click', function(){
-      let icon = document.querySelector('.fa-bars');
+      let icon =
+        document.querySelector(
+          ".fa-bars" 
+        ) ||
+        document.querySelector(
+         ".fa-xmark"
+        );
       let displayCheck = window.getComputedStyle(sideBarOptions).display;
       if(displayCheck == 'none'){
-        sideBarOptions.style.display = 'block';
-        icon = this.querySelector('.fa-bars');
+          sideBarOptions.style.display = 'block';
+        //   icon = this.querySelector('.fa-bars');
+          
         icon.classList.add('fa-xmark');
         icon.classList.remove('fa-bars');
       } else {
-          console.log(displayCheck);
             sideBarOptions.style.display = 'none';
-            icon = this.querySelector('.fa-xmark');
+            // icon = this.querySelector('.fa-xmark');
             icon.classList.add('fa-bars');
             icon.classList.remove('fa-xmark');
             menuOption.forEach(function (m) {
